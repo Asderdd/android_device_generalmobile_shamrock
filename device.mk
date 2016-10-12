@@ -216,6 +216,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
+
+# Temporary fix for microphone - audio.primary.msm8952.so from stock marshmallow
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilt/audio.primary.msm8952.so:system/lib/hw/audio.primary.msm8952.so
+
 # WCNSS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
