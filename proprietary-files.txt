@@ -659,11 +659,16 @@ lib/libcryptfs_hw.so
 
 # DRM
 bin/qseecomd
+vendor/lib/lib-sec-disp.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
+vendor/lib/libsecureui.so
+vendor/lib/libsecureui_svcsock.so
+vendor/lib/libSecureUILib.so
 vendor/lib/libssd.so
+vendor/lib/libStDrvInt.so
 
 # Firmwares
 etc/firmware/DE.o.msm8952
