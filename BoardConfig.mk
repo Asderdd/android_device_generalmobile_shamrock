@@ -79,6 +79,9 @@ QCOM_BT_USE_SMD_TTY := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+# Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
