@@ -51,6 +51,19 @@ failed ()
   exit $2
 }
 
+program_bdaddr ()
+{
+  /system/bin/btnvtool -O
+  logi "Bluetooth Address programmed successfully"
+}
+
+# Set platform variables
+if [ -f /sys/devices/soc0/hw_platform ]; then
+    soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
+else
+    soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
+fi
+
 #
 # enable bluetooth profiles dynamically
 #
@@ -115,7 +128,12 @@ config_bt ()
         setprop ro.qualcomm.bluetooth.ftp true
         setprop ro.qualcomm.bluetooth.nap true
         setprop ro.bluetooth.sap true
-        setprop ro.bluetooth.dun true
+        if [ "$soc_hwplatform" == "EVE" ]
+        then
+           setprop ro.bluetooth.dun false
+        else
+           setprop ro.bluetooth.dun true
+        fi
         case $btsoc in
           "ath3k")
               setprop ro.qualcomm.bluetooth.map false
@@ -209,6 +227,7 @@ kill_hciattach ()
 logi "init.qcom.bt.sh config = $config"
 case "$config" in
     "onboot")
+        program_bdaddr
         config_bt
         exit 0
         ;;

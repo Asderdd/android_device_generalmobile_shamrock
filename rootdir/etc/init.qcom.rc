@@ -321,7 +321,7 @@ on property:vold.decrypt=trigger_restart_framework
     start wcnss-service
     start config_bt_addr
 
-service cnd /system/bin/cnd
+service cnd /system/vendor/bin/cnd
     class late_start
     socket cnd stream 660 root inet
 
