@@ -36,12 +36,14 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8952
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm
+TARGET_KERNEL_HEADER_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/google/msm8952
 TARGET_KERNEL_CONFIG := cyanogenmod_shamrock_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
@@ -54,7 +56,7 @@ TARGET_OTA_ASSERT_DEVICE := shamrock
 
 # Audio
 AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true
-AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
+#AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_SOURCE_TRACKING := true
@@ -133,9 +135,6 @@ TARGET_PROVIDES_KEYMASTER := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
-
-# Malloc
-MALLOC_IMPL := dlmalloc
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true

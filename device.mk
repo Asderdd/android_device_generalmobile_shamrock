@@ -69,7 +69,7 @@ PRODUCT_PACKAGES += \
     libantradio
 
 PRODUCT_COPY_FILES += \
-	external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -87,8 +87,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:system/etc/audio_platform_info_extcodec.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/mixer_paths_l9300.xml:system/etc/mixer_paths_l9300.xml
 
 # Browser
@@ -214,8 +214,6 @@ PRODUCT_PACKAGES += \
 # Sound trigger
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
-    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths_wcd9306.xml:system/etc/sound_trigger_mixer_paths_wcd9306.xml \
-    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths_wcd9330.xml:system/etc/sound_trigger_mixer_paths_wcd9330.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
 # WCNSS
@@ -238,7 +236,6 @@ PRODUCT_PACKAGES += \
     libwpa_client
 
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
     hostapd.accept \
 	hostapd.deny \
 	hostapd_default.conf \
