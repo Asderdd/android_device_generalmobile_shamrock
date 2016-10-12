@@ -29,7 +29,7 @@ PRODUCT_BRAND := google
 PRODUCT_DEVICE := shamrock
 PRODUCT_NAME := cm_shamrock
 PRODUCT_MANUFACTURER := General Mobile
-#PRODUCT_MODEL := GM 5 Plus
+PRODUCT_MODEL := GM 5 Plus
 TARGET_VENDOR := google
 
 PRODUCT_GMS_CLIENTID_BASE := android-google
@@ -37,7 +37,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-google
 # Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=shamrock \
-    BUILD_FINGERPRINT=qcom/shamrock/shamrock:6.0.1/M3E26/3094945:user/release-keys \
-    PRIVATE_BUILD_DESC="shamrock-user 6.0.1 M3E26 3094945 release-keys"
+    BUILD_FINGERPRINT=qcom/shamrock/shamrock:6.0.1/M3E56/3221152:user/release-keys \
+    PRIVATE_BUILD_DESC="shamrock-user 6.0.1 M3E56 3221152 release-keys"
 endif
