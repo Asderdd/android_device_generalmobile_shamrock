@@ -858,7 +858,7 @@ vendor/lib/libthermalioctl.so
 
 # Time services
 bin/time_daemon
-vendor/lib/libtime_genoff.so
+-vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
 # WiFi
