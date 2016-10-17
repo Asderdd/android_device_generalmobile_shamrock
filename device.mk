@@ -91,6 +91,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/mixer_paths_l9300.xml:system/etc/mixer_paths_l9300.xml
 
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
+
 # Browser
 PRODUCT_PACKAGES += \
     Gello
@@ -190,8 +194,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.qcom.sh \
-    init.qcom.bt.sh
+    init.qcom.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \
