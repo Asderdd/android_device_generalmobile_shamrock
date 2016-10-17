@@ -37,6 +37,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-google
 # Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=qcom/shamrock/shamrock:7.0/N3E71B/3261468:user/dev-keys \
-    PRIVATE_BUILD_DESC="shamrock-user 7.0 N3E71B 3261468 release-keys"
+    BUILD_FINGERPRINT=qcom/shamrock/shamrock:7.0/N3E92/3319301:user/dev-keys \
+    PRIVATE_BUILD_DESC="shamrock-user 7.0 N3E92 3319301 release-keys"
 endif
