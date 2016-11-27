@@ -92,10 +92,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/mixer_paths_l9300.xml:system/etc/mixer_paths_l9300.xml
 
-# Browser
-PRODUCT_PACKAGES += \
-    Gello
-
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
