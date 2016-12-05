@@ -36,8 +36,7 @@ on early-init
     mkdir /dsp 0771 media media
 
 on init
-
-	mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
+    mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -95,8 +94,10 @@ on boot
     chmod 2770 /dev/socket/qmux_gps
 
     mkdir /persist/drm 0770 system system
-	#Point
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
+    mkdir /persist/alarm 0770 system system
+    mkdir /persist/misc 0770 system system
+    mkdir /persist/time 0770 system system
 
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
@@ -153,7 +154,9 @@ on boot
     chown radio radio /data/misc/radio/copy_complete
     chmod 0660 /data/misc/radio/copy_complete
 
-    # Notification LED
+    # LED
+    chmod 0666 /sys/class/leds/led:torch_0/brightness
+    chmod 0666 /sys/class/leds/led:torch_1/brightness
     chown system system /sys/class/leds/red/blink
     chown system system /sys/class/leds/green/blink
     chown system system /sys/class/leds/blue/blink
@@ -162,7 +165,11 @@ on boot
     chown system system /sys/class/leds/blue/on_off_ms
 
 on fs
+    wait /dev/block/bootdevice
     mount_all fstab.qcom
+    write /proc/sys/vm/swappiness 100
+    mkdir /persist/data 0700 system system
+    restorecon_recursive /persist
 
 on post-fs
     symlink /sdcard /storage/sdcard0
@@ -407,6 +414,9 @@ on property:ro.use_data_netmgrd=false
 on property:ro.data.large_tcp_window_size=true
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
+on property:sys.sysctl.tcp_adv_win_scale=*
+    write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
+
 service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf -N \
@@ -476,6 +486,9 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     group camera system inet input graphics
     writepid /dev/cpuset/system-background/tasks
 
+on property:vold.decrypt=trigger_restart_min_framework
+    start time_daemon
+
 service qseecomd /system/bin/qseecomd
    class core
    user root
@@ -529,6 +542,18 @@ on property:init.svc.surfaceflinger=stopped
 on property:init.svc.surfaceflinger=running
     start ppd
 
+on property:init.svc.surfaceflinger=restarting
+    stop ppd
+
+on property:init.svc.zygote=stopped
+    stop ppd
+
+on property:init.svc.zygote=running
+    start ppd
+
+on property:init.svc.zygote=restarting
+    stop ppd
+
 on charger
     start hvdcp_opti
 
@@ -542,10 +567,3 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.
     user root
     group root
     disabled	
-
-service msm_irqbal_lb /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance_little_big.conf
-    class core
-    user root
-    group root
-    disabled
-    writepid /dev/cpuset/system-background/tasks
