@@ -78,9 +78,12 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8952 \
     audio.r_submix.default \
     audio.usb.default \
+    libaudio-resampler \
+    libaudioroute \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libtinycompress \
     tinymix
 
 PRODUCT_COPY_FILES += \
@@ -130,6 +133,9 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+    libcurl
+
+PRODUCT_PACKAGES += \
     flp.conf \
     gps.conf \
     izat.conf \
@@ -137,13 +143,16 @@ PRODUCT_PACKAGES += \
     sap.conf \
     xtwifi.conf
 
-#PRODUCT_PACKAGES += \
-#    gps.msm8952
-
 # IPACM
 #PRODUCT_PACKAGES += \
 #    IPACM_cfg.xml \
 #    ipacm
+
+# IPv6
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libebtc
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -176,6 +185,7 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
