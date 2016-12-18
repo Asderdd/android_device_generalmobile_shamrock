@@ -1,4 +1,6 @@
 # Audio
+af.fast_track_multiplier=1
+audio_hal.period_size=192
 audio.dolby.ds2.enabled=true
 audio.deep_buffer.media=true
 audio.offload.buffer.size.kb=64
@@ -27,10 +29,8 @@ persist.audio.fluence.speaker=true
 persist.audio.fluence.spk.mono=true
 persist.audio.fluence.voicecall=true
 persist.audio.fluence.voicerec=true
-persist.sys.button_jack_profile=volume
-persist.sys.button_jack_switch=0
 
-ro.qc.sdk.audio.fluencetype=none
+ro.qc.sdk.audio.fluencetype=fluence
 ro.qc.sdk.audio.ssr=false
 tunnel.audio.encode=false
 use.voice.path.for.pcm.voip=true
