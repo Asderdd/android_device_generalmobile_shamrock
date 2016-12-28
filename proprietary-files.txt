@@ -763,8 +763,6 @@ vendor/lib/hw/keystore.msm8952.so
 lib/hw/lights.msm8952.so
 
 # Media
-lib/libOmxCore.so
-lib/libOmxVenc.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libOmxAacDec.so
