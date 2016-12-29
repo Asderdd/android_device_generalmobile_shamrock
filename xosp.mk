@@ -17,8 +17,11 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some proprietary XOSP stuff.
+$(call inherit-product, vendor/xosp/config/xosp.mk)
+
+# Inherit some common XOSP stuff.
+$(call inherit-product, vendor/xosp/config/common_full_phone.mk)
 
 # Inherit from shamrock device
 $(call inherit-product, device/google/shamrock/device.mk)
@@ -27,7 +30,7 @@ $(call inherit-product, device/google/shamrock/device.mk)
 BOARD_VENDOR := google
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := shamrock
-PRODUCT_NAME := cm_shamrock
+PRODUCT_NAME := xosp_shamrock
 PRODUCT_MANUFACTURER := General Mobile
 PRODUCT_MODEL := GM 5 Plus
 TARGET_VENDOR := google
