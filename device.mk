@@ -128,6 +128,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Gello
 
+# Camera
+PRODUCT_PACKAGES += \
+    Camera2
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -249,10 +253,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     sensors.msm8952
-
-# Snapdragon Camera
-PRODUCT_PACKAGES += \
-    Snap
 
 # WCNSS
 PRODUCT_COPY_FILES += \
