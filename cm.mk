@@ -28,8 +28,8 @@ BOARD_VENDOR := google
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := shamrock
 PRODUCT_NAME := cm_shamrock
-PRODUCT_MANUFACTURER := General Mobile
-PRODUCT_MODEL := GM 5 Plus
+PRODUCT_MANUFACTURER := Google
+PRODUCT_MODEL := Pixel XL
 TARGET_VENDOR := google
 
 PRODUCT_GMS_CLIENTID_BASE := android-google
