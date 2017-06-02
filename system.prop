@@ -124,5 +124,9 @@ net.tcp.2g_init_rwnd=10
 # Time
 persist.timed.enable=true
 
+# VoLTE
+persist.dbg.ims_volte_enable=1
+persist.dbg.volte_avail_ovr=1
+
 # WiFi
 wifi.interface=wlan0
